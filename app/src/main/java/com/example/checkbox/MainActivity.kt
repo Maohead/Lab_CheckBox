@@ -2,6 +2,7 @@ package com.example.checkbox
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,15 +24,24 @@ class MainActivity : AppCompatActivity() {
         }
         val btn : Button = findViewById(R.id.btnChoose)
         val tvChos : TextView = findViewById(R.id.tvChoose)
+        val imageChos : ImageView = findViewById(R.id.imChoose)
 
         btn.setOnClickListener {
-            val result = StringBuilder()
             if (binding.cbCar.isChecked) {
                 tvChos.text = binding.cbCar.text
+                imageChos.visibility = android.view.View.VISIBLE
+                imageChos.setImageResource(R.drawable.car)
             } else if (binding.cbBus.isChecked) {
                 tvChos.text = binding.cbBus.text
-            } else {
+                imageChos.visibility = android.view.View.VISIBLE
+                imageChos.setImageResource(R.drawable.bus)
+            } else if (binding.cbTraktor.isChecked) {
                 tvChos.text = binding.cbTraktor.text
+                imageChos.visibility = android.view.View.VISIBLE
+                imageChos.setImageResource(R.drawable.traktor)
+            } else {
+                tvChos.text = "Вы ничего не выбрали"
+                imageChos.visibility = android.view.View.INVISIBLE
             }
         }
     }
